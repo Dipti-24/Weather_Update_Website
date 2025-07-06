@@ -1,7 +1,7 @@
 name: Manual Deploy to Render
 
 on:
-  workflow_dispatch:  # Show 'Run workflow' button
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -11,3 +11,4 @@ jobs:
       - name: Trigger Render Deploy
         run: |
           curl -X POST https://api.render.com/deploy/${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
+
