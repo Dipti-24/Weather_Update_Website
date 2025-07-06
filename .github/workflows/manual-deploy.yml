@@ -1,0 +1,13 @@
+name: Manual Deploy to Render
+
+on:
+  workflow_dispatch:  # Allows you to trigger it manually
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Render Deploy
+        run: |
+          curl -X POST https://api.render.com/deploy/${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
