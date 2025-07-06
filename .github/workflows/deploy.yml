@@ -1,7 +1,7 @@
 name: Manual Deploy to Render
 
 on:
-  workflow_dispatch:  # Adds a 'Run workflow' button in GitHub Actions tab
+  workflow_dispatch:  # Show 'Run workflow' button
 
 jobs:
   deploy:
@@ -10,4 +10,5 @@ jobs:
     steps:
       - name: Trigger Render Deploy
         run: |
-          curl -X POST https://api.render.com/deploy/${{d1l5b66r433s73d9n73g/deploys/dep-d1l5b6er433s73d9n790 }}?key=${{2CCDE8rp1luoHfSBub5vbnFUfTBh}}
+          curl -X POST https://api.render.com/deploy/${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
+
